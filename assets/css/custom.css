@@ -1,0 +1,79 @@
+
+/* Bio section at bottom of page */
+.bio {
+	margin: 0 auto;
+	width: 80%;
+	padding: 1.5em;
+	max-width: 780px;
+	font-size: 0.8em;
+	line-height: 1.4em;
+	background: #293642;
+	color: #fff;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.bio p {
+	margin-bottom: 1em;
+}
+
+.bio a,
+.bio h3 {
+	color: #fff;
+}
+
+/* Page description title */
+.page-description {
+	margin-bottom: 1em;
+}
+
+/* Utilise .subscribe-button styles for basic nav */
+.subscribe-button-nofloat {
+	float: none;
+}
+
+/* Links in main header similar to subscribe button on index banner */
+.main-header-content a {
+	color: #fff;
+	text-decoration: none;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.main-header-content .subscribe-button {
+	border-color: #fff;
+}
+
+.main-header-content a:hover {
+	color: #222;
+	border-color: rgba(255,255,255,0.8);
+	background: rgba(255,255,255,0.8);
+	transition: all 0.1s ease;
+}
+
+/* Remove shadow as un-needed and blocks banner button */
+.home-template .main-header:after {
+	display: none;
+}
+
+/* STANDARD SCREEN DEVICES */
+@media only screen and (max-width: 1600px){
+	.bio {
+		max-width: 710px;
+	}
+}
+
+/* SMALL SCREEN DEVICES */
+@media only screen and (max-width: 500px){
+	.bio {
+		width: auto;
+		margin: 0 16px;
+	}
+}
