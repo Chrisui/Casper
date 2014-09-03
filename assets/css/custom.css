@@ -58,6 +58,12 @@
 	transition: all 0.1s ease;
 }
 
+/* pre-formatted text (allow highlight.js to controls style) */
+pre {
+	padding: 0;
+	border: 0;
+}
+
 /* Remove shadow as un-needed and blocks banner button */
 .home-template .main-header:after {
 	display: none;
