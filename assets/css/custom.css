@@ -1,24 +1,94 @@
+@-webkit-keyframes night-cycle {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes pop-scale {
+    0%, 100% { -webkit-transform: scale(1); }
+    80% { -webkit-transform: scale(1.1); }
+}
+@-moz-keyframes pop-scale {
+    0%, 100% { -moz-transform: scale(1); }
+    80% { -moz-transform: scale(1.1); }
+}
+
+.main-header {
+    position: relative;
+    background-color: transparent;
+}
+
+.main-header-background,
+.main-header-background::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.main-header-background {
+    z-index: -1;
+
+    background: linear-gradient(to top left,
+        #37ffdf,
+        #4ab6ca 10%,
+        #2d7f99 30%,
+        #276778 50%,
+        #090e10 90%,
+        #000000
+    );
+}
+
+.main-header-background::after {
+    content: '';
+    background: linear-gradient(to top left,
+        #ff9432,
+        #ca7339 10%,
+        #99412c 30%,
+        #781d23 50%,
+        #100607 90%,
+        #000000
+    );
+    opacity: 0;
+    /*-webkit-animation: night-cycle 15s infinite;*/
+}
 
 /* Bio section at bottom of page */
 .bio {
+    padding: 8rem 0;
+    background: linear-gradient(to top left,
+        #ff9432,
+        #ca7339 10%,
+        #99412c 30%,
+        #781d23 50%,
+        #100607 90%,
+        #000000
+    );
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bio-content {
 	margin: 0 auto;
 	width: 80%;
 	padding: 1.5em;
 	max-width: 780px;
 	font-size: 0.8em;
 	line-height: 1.4em;
-	background: #293642;
 	color: #fff;
 
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	border-radius: 3px;
 }
 
 .bio p {
@@ -30,9 +100,34 @@
 	color: #fff;
 }
 
+/* post page site footer to fit with bio */
+.post-template .site-footer {
+    margin: -4em 0 0 0;
+    background: transparent;
+    color: #fff;
+}
+
+.post-template .site-footer a {
+    color: #fff;
+}
+
 /* Page description title */
 .page-description {
 	margin-bottom: 1em;
+}
+
+/* custom gist style */
+.post .gist .line-number {
+    min-width: initial;
+}
+
+.post .gist .gist-file {
+    margin-bottom: 1.75em;
+    border: 1px solid #ddd;
+}
+
+.post .gist .gist-meta {
+    background-color: #fff;
 }
 
 /* Utilise .subscribe-button styles for basic nav */
@@ -69,17 +164,141 @@ pre {
 	display: none;
 }
 
+/* Share post */
+.post-footer .share {
+    position: static;
+}
+
+/* Post discuss CTA */
+.discuss {
+    float: right;
+    text-align: right;
+}
+
+.post-footer {
+    margin: 8rem 0 6rem 0;
+}
+
+/* read more */
+.read-more {
+    text-align: center;
+    padding: 3rem;
+}
+
+.read-more .button {
+    margin: 1rem 0;
+}
+
+.post-footer-scroll .share {
+    -webkit-animation: pop-scale 0.3s 1;
+    -moz-animation: pop-scale 0.3s 1;
+}
+.post-footer-scroll .read-more {
+    -webkit-animation: pop-scale 0.3s 0.2s 1;
+    -moz-animation: pop-scale 0.3s 0.2s 1;
+}
+.post-footer-scroll .discuss {
+    -webkit-animation: pop-scale 0.3s 0.4s 1;
+    -moz-animation: pop-scale 0.3s 0.4s 1;
+}
+
+.poweredby {
+    width: auto;
+}
+
+/* fixing some side nav styles */
+body.nav-opened .site-wrapper {
+    overflow-y: hidden; /* prevent scrollbar */
+}
+
+.menu-button:before {
+    color: inherit !important;
+}
+
+/* button */
+.button {
+    display: inline-block;
+    height: 38px;
+    padding: 0 15px;
+    border: #bfc8cd 1px solid;
+    opacity: 1;
+    color: #68747c;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 35px;
+    white-space: nowrap;
+    border-radius: 3px;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.button-light {
+    color: #fff;
+    border-color: #fff;
+}
+
+.button[class^="icon-"]:before, .button[class*=" icon-"]:before {
+    margin-right: 6px;
+}
+
 /* STANDARD SCREEN DEVICES */
 @media only screen and (max-width: 1600px){
-	.bio {
+	.bio-content {
 		max-width: 710px;
 	}
 }
 
+/* MID SCREEN (tablets?) */
+@media only screen and (max-width: 900px) {
+    .post-footer {
+        margin-bottom: 12rem;
+    }
+}
+
 /* SMALL SCREEN DEVICES */
 @media only screen and (max-width: 500px){
-	.bio {
+	.bio-content {
 		width: auto;
 		margin: 0 16px;
 	}
+
+    .post-footer {
+        margin: 6rem 0 3rem 0;
+    }
+
+    .discuss {
+        float: none;
+        text-align: center;
+    }
+
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .read-more {
+        padding: 3rem 3rem 1rem 3rem;
+    }
+
+    .share {
+        padding-top: 3rem;
+    }
+
+    .discuss {
+        padding-top: 2rem;
+    }
+
+    .post-footer-scroll .discuss {
+        -webkit-animation: pop-scale 0.3s 1;
+        -moz-animation: pop-scale 0.3s 1;
+    }
+    .post-footer-scroll .share {
+        -webkit-animation: pop-scale 0.3s 0.2s 1;
+        -moz-animation: pop-scale 0.3s 0.2s 1;
+    }
+    .post-footer-scroll .read-more {
+        -webkit-animation: pop-scale 0.3s 0.4s 1;
+        -moz-animation: pop-scale 0.3s 0.4s 1;
+    }
 }

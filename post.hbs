@@ -29,36 +29,27 @@
             {{content}}
         </section>
 
-        <footer class="post-footer">
+        <footer class="post-footer" id="post-footer">
 
         {{! Everything inside the #author tags pulls data from the author }}
         {{#author}}
 
             {{#if image}}
             <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+                <span class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></span>
             </figure>
             {{/if}}
 
-            <section class="author">
-                <h4><a href="{{url}}">{{name}}</a></h4>
-
-                {{#if bio}}
-                    <p>{{bio}}</p>
-                {{else}}
-                    <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-                {{/if}}
-                <div class="author-meta">
-                    {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-                    {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
-                </div>
-            </section>
-
         {{/author}}
+
+            <section class="discuss">
+                <h4>Want to chat?</h4>
+                <p><span class="hide-mobile">Get in touch on twitter</span> <a href="https://twitter.com/chrisui" target="_blank">@chrisui</a></p>
+            </section>
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                <a class="icon-twitter" href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}&amp;via=chrisui"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
@@ -71,6 +62,11 @@
                     <span class="hidden">Google+</span>
                 </a>
             </section>
+
+            <div class="read-more">
+                <h4>Want some more?</h4>
+                <a href="{{@blog.url}}" class="button">Read more posts</a>
+            </div>
 
         </footer>
 
